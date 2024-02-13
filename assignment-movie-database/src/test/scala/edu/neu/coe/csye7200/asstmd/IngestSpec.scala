@@ -25,8 +25,6 @@ class IngestSpec extends AnyFlatSpec with Matchers {
     // TO BE IMPLEMENTED
     xys.size shouldBe 1
     xys.head shouldBe Success(42)
-
-
     // STUB
     // END
   }
@@ -41,7 +39,7 @@ class IngestSpec extends AnyFlatSpec with Matchers {
           case e: ParseException => System.err.println(e); my
         }
         val mos = for (my <- mys) yield for (m <- my.toOption; if m.production.country == "New Zealand") yield m
-        val ms = mos.flatten
+        val ms = mos.flatten.toSeq
         ms.size shouldBe 4
         ms foreach println
         source.close()
