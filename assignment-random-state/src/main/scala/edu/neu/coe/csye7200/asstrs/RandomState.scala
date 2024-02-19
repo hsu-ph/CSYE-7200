@@ -116,8 +116,7 @@ object RandomState {
   // 4 points
   val longToDouble: Long => Double = {
     // TO BE IMPLEMENTED
-    x => (x.toDouble / Long.MaxValue) + 1 / 2
-
+    x => x.toDouble / Long.MaxValue + 1 / 2
   }
 
   val doubleToUniformDouble: Double => UniformDouble = { x => UniformDouble((x + 1) / 2) }
